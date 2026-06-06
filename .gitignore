@@ -1,0 +1,36 @@
+# SeaTrace MSC-v007 Demo
+# Git ignore patterns
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local env (should never exist in this public demo)
+.env
+.env.local
+.env.*.local
+
+# Temp files
+temp/
+tmp/
+*.tmp
+
+# Node (if ever added)
+node_modules/
+package-lock.json
+
+# Build artifacts (if ever added)
+dist/
+build/

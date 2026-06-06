@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SeaTrace · MSC-v007 · Peter Pan × Publix Sockeye Demo</title>
+<meta name="description" content="MSC-v007 scenario-safe seafood traceability demo. Four-pillar proof flow: SeaSide HOLD, DeckSide RECORD, DockSide STORE, MarketSide EXCHANGE. Alaska sockeye public demonstration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/msc-v007-demo.css">
+</head>
+<body>
+
+<!-- Scanline overlay -->
+<div class="scanlines"></div>
+<div class="scanbar"></div>
+
+<!-- Layout: Sidebar + Main -->
+<div class="layout">
+
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar" aria-label="MSC-v007 scenario navigation">
+    <div class="sidebar-header">
+      <div class="logo-wrap">
+        <svg class="logo-globe" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" stroke="#00E5FF" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="20" cy="20" r="12" stroke="#00E5FF" stroke-width="1.5"/>
+          <path d="M20 8 A12 12 0 0 1 32 20" stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M20 32 A12 12 0 0 1 8 20" stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="20" cy="20" r="3" fill="#00E5FF"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <div class="logo-title">SeaTrace</div>
+        <div class="logo-sub">MSC-v007 Demo</div>
+      </div>
+    </div>
+    
+    <div class="sidebar-nav">
+      <a class="nav-item active" href="#overview" data-step="-1">
+        <span class="nav-num">00</span>
+        <span class="nav-label">Overview</span>
+      </a>
+      <a class="nav-item" href="#seaside" data-step="0">
+        <span class="nav-num">01</span>
+        <span class="nav-label">SeaSide HOLD</span>
+      </a>
+      <a class="nav-item" href="#deckside" data-step="1">
+        <span class="nav-num">02</span>
+        <span class="nav-label">DeckSide RECORD</span>
+      </a>
+      <a class="nav-item" href="#dockside" data-step="2">
+        <span class="nav-num">03</span>
+        <span class="nav-label">DockSide STORE</span>
+      </a>
+      <a class="nav-item" href="#marketside" data-step="3">
+        <span class="nav-num">04</span>
+        <span class="nav-label">MarketSide EXCHANGE</span>
+      </a>
+      <a class="nav-item" href="#qr-trace" data-step="8">
+        <span class="nav-num">05</span>
+        <span class="nav-label">QR Reverse Trace</span>
+      </a>
+      <a class="nav-item" href="#split">
+        <span class="nav-num">06</span>
+        <span class="nav-label">Public/Private Split</span>
+      </a>
+    </div>
+    
+    <div class="sidebar-footer">
+      <div class="rail-badge">Rail #1 — Public Campaign</div>
+      <div class="msc-status">MSC Blue-Label: <strong>WITHHELD</strong></div>
+      <div class="scenario-note">Scenario-safe demo only</div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="overview" class="hero">
+      <div class="hero-badge">MSC-v007 Public Demo · noindex</div>
+      <h1>Peter Pan × Publix<br><span class="highlight">Sockeye Proof Chain</span></h1>
+      <p class="hero-sub">Scenario-safe seafood traceability demonstration. Four-pillar proof flow from harvest origin to retail counter — without exposing private commercial terms.</p>
+      
+      <div class="boundary-banner">
+        <span class="banner-item"><span class="dot dot-green"></span>Public proof labels visible</span>
+        <span class="banner-item"><span class="dot dot-amber"></span>Private values: WITHHELD</span>
+        <span class="banner-item"><span class="dot dot-amber"></span>MSC certification: WITHHELD</span>
+      </div>
+      
+      <!-- Scenario ID Chips -->
+      <div class="scenario-chips">
+        <div class="chip"><span class="chip-label">Demo Lot</span><span class="chip-value">DEMO-PP-PUBLIX-SOCKEYE-001</span></div>
+        <div class="chip"><span class="chip-label">Species</span><span class="chip-value">Alaska Sockeye Salmon</span></div>
+        <div class="chip"><span class="chip-label">Format</span><span class="chip-value">10 lb Boxed Fillets</span></div>
+        <div class="chip"><span class="chip-label">Scenario Ref</span><span class="chip-value">SCN-LOT-2026-PUB-01</span></div>
+      </div>
+    </section>
+
+    <!-- Demo Controls -->
+    <section class="demo-controls-section">
+      <div class="demo-panel">
+        <div class="panel-header">
+          <h2>H.7 — Four-Pillar Proof Flow Simulator</h2>
+          <div class="mode-toggle">
+            <span class="toggle-label">Mode:</span>
+            <button class="toggle-btn active" id="mode-manual" onclick="setMode('manual')">Manual Step</button>
+            <button class="toggle-btn" id="mode-auto" onclick="setMode('auto')">Auto-Run</button>
+          </div>
+        </div>
+        
+        <!-- Disclaimer -->
+        <p class="disclaimer">
+          <strong>Scenario-safe simulator.</strong> Not a live purchase order, not a claim of partnership authorization, and not a disclosure of private customer records. This public demonstration shows how a sockeye program moves through the four pillars without exposing commercial terms, private party records, or protected delivery specifics.
+        </p>
+        
+        <!-- 9-Button Taskbar -->
+        <div class="taskbar" role="toolbar" aria-label="Proof flow steps">
+          <button class="task-btn" data-step="0" onclick="runStep(0)">
+            <span class="step-num">01</span>
+            <span class="step-label">Root Source</span>
+          </button>
+          <button class="task-btn" data-step="1" onclick="runStep(1)">
+            <span class="step-num">02</span>
+            <span class="step-label">Receiving Lot</span>
+          </button>
+          <button class="task-btn" data-step="2" onclick="runStep(2)">
+            <span class="step-num">03</span>
+            <span class="step-label">Weight Band</span>
+          </button>
+          <button class="task-btn" data-step="3" onclick="runStep(3)">
+            <span class="step-num">04</span>
+            <span class="step-label">Processing</span>
+          </button>
+          <button class="task-btn" data-step="4" onclick="runStep(4)">
+            <span class="step-num">05</span>
+            <span class="step-label">Case Count</span>
+          </button>
+          <button class="task-btn" data-step="5" onclick="runStep(5)">
+            <span class="step-num">06</span>
+            <span class="step-label">PO Match State</span>
+          </button>
+          <button class="task-btn" data-step="6" onclick="runStep(6)">
+            <span class="step-num">07</span>
+            <span class="step-label">Warehouse Route</span>
+          </button>
+          <button class="task-btn" data-step="7" onclick="runStep(7)">
+            <span class="step-num">08</n            <span class="step-label">Store Program</span>
+          </button>
+          <button class="task-btn" data-step="8" onclick="runStep(8)">
+            <span class="step-num">09</span>
+            <span class="step-label">QR Proof</span>
+          </button>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="progress-wrap">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <span class="progress-label" id="progress-label">Select a step above to begin — or choose Auto-Run</span>
+        </div>
+        
+        <!-- Reset Button -->
+        <button class="reset-btn" onclick="resetDemo()">↻ Reset Demo</button>
+      </div>
+    </section>
+
+    <!-- Dual Board Display -->
+    <section class="boards-section" id="boards-container">
+      <div class="dual-board">
+        
+        <!-- Public Proof Board -->
+        <div class="board public-board">
+          <div class="board-header">
+            <h3>Public Proof Board</h3>
+            <span class="board-badge public-badge">#CATCH</span>
+          </div>
+          <div class="board-content" id="public-fields">
+            <div class="empty-state">
+              <div class="empty-icon">📋</div>
+              <p>Select a step above to see public proof fields.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Private Blocked Board -->
+        <div class="board private-board">
+          <div class="board-header">
+            <h3>Private Blocked</h3>
+            <span class="board-badge private-badge">$CHECK</span>
+          </div>
+          <div class="board-content" id="private-fields">
+            <div class="empty-state">
+              <div class="empty-icon">🔒</div>
+              <p>Blocked fields will appear here.</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Four Pillar Cards -->
+    <section class="pillars-section">
+      <h2 class="section-title">Four Pillar Overview</h2>
+      <div class="pillar-cards">
+        
+        <article class="pillar-card" id="seaside">
+          <div class="pillar-header">
+            <span class="pillar-num">01</span>
+            <div class="pillar-icon">⚓</div>
+          </div>
+          <h3>SeaSide</h3>
+          <div class="pillar-mode">HOLD</div>
+          <p>Origin context held. Vessel class and general region visible. Exact GPS and vessel identity withheld.</p>
+          <div class="pillar-fields">
+            <div class="field public"><span class="field-label">Origin Region</span><span class="field-value">Pacific Northwest · AK</span></div>
+            <div class="field public"><span class="field-label">Vessel Class</span><span class="field-value">Small Commercial Salmon</span></div>
+            <div class="field public"><span class="field-label">Trip Window</span><span class="field-value">Scenario Range</span></div>
+            <div class="field withheld"><span class="field-label">Exact Coordinates</span><span class="field-value">WITHHELD</span></div>
+          </div>
+        </article>
+        
+        <article class="pillar-card" id="deckside">
+          <div class="pillar-header">
+            <span class="pillar-num">02</span>
+            <div class="pillar-icon">📝</div>
+          </div>
+          <h3>DeckSide</h3>
+          <div class="pillar-mode">RECORD</div>
+          <p>#CATCH estimate recorded. Species and projected grade visible. Harvest volume withheld.</p>
+          <div class="pillar-fields">
+            <div class="field public"><span class="field-label">Species</span><span class="field-value">Sockeye Salmon</span></div>
+            <div class="field public"><span class="field-label">Product Form</span><span class="field-value">Fillet · H&G</span></div>
+            <div class="field public"><span class="field-label">Projected Grade</span><span class="field-value">Scenario A/B Mix</span></div>
+            <div class="field withheld"><span class="field-label">Harvest Volume</span><span class="field-value">WITHHELD</span></div>
+          </div>
+        </article>
+        
+        <article class="pillar-card" id="dockside">
+          <div class="pillar-header">
+            <span class="pillar-num">03</span>
+            <div class="pillar-icon">🏭</div>
+          </div>
+          <h3>DockSide</h3>
+          <div class="pillar-mode">STORE</div>
+          <p>#HARVEST actual confirmed. Case format and custody review visible. Invoice lines withheld.</p>
+          <div class="pillar-fields">
+            <div class="field public"><span class="field-label">Receiving Status</span><span class="field-value">Cold Chain Receipt</span></div>
+            <div class="field public"><span class="field-label">Case Format</span><span class="field-value">IQF · 10 lb Cases</span></div>
+            <div class="field public"><span class="field-label">Conversion Label</span><span class="field-value">Measured</span></div>
+            <div class="field withheld"><span class="field-label">Invoice Lines</span><span class="field-value">WITHHELD</span></div>
+          </div>
+        </article>
+        
+        <article class="pillar-card" id="marketside">
+          <div class="pillar-header">
+            <span class="pillar-num">04</span>
+            <div class="pillar-icon">🌐</div>
+          </div>
+          <h3>MarketSide</h3>
+          <div class="pillar-mode">EXCHANGE</div>
+          <p>Buyer-safe proof released. Route summary and QR status visible. Price and margin withheld.</p>
+          <div class="pillar-fields">
+            <div class="field public"><span class="field-label">Buyer Program</span><span class="field-value">Publix Program Label</span></div>
+            <div class="field public"><span class="field-label">Route Summary</span><span class="field-value">AK → SE Distribution</span></div>
+            <div class="field public"><span class="field-label">QR Proof Status</span><span class="field-value ready">READY</span></div>
+            <div class="field withheld"><span class="field-label">Price/Margin</span><span class="field-value">WITHHELD</span></div>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+
+    <!-- QR Reverse Trace -->
+    <section id="qr-trace" class="trace-section">
+      <h2 class="section-title">QR Reverse Trace · Retail to Origin</h2>
+      
+      <div class="trace-flow">
+        <div class="trace-label">Forward Trace — Origin to Counter</div>
+        <div class="trace-steps forward">
+          <div class="trace-step active" data-step="0">SeaSide HOLD</div>
+          <div class="trace-arrow">→</div>
+          <div class="trace-step" data-step="1">DeckSide RECORD</div>
+          <div class="trace-arrow">→</div>
+          <div class="trace-step" data-step="2">DockSide STORE</div>
+          <div class="trace-arrow">→</div>
+          <div class="trace-step" data-step="3">MarketSide EXCHANGE</div>
+          <div class="trace-arrow">→</div>
+          <div class="trace-step retail">Retail Counter</div>
+        </div>
+      </div>
+      
+      <div class="trace-flow reverse-flow">
+        <div class="trace-label">Reverse Trace — Counter to Origin</div>
+        <div class="trace-steps reverse">
+          <div class="trace-step retail">Consumer QR Scan</div>
+          <div class="trace-arrow">←</div>
+          <div class="trace-step" data-step="3">MarketSide</div>
+          <div class="trace-arrow">←</div>
+          <div class="trace-step" data-step="2">DockSide</div>
+          <div class="trace-arrow">←</div>
+          <div class="trace-step" data-step="1">DeckSide</div>
+          <div class="trace-arrow">←</div>
+          <div class="trace-step" data-step="0">SeaSide</div>
+        </div>
+      </div>
+      
+      <div class="run-scenario-wrap">
+        <button class="run-btn" onclick="runFullScenario()">▶ Run Full Scenario</button>
+        <p class="run-note">Simulates the complete public proof trace. No backend. No private documents. No live API.</p>
+      </div>
+    </section>
+
+    <!-- Public/Private Split -->
+    <section id="split" class="split-section">
+      <h2 class="section-title">Public / Private Split · Rail Architecture</h2>
+      
+      <div class="split-ribbon">
+        <div class="rail-card public-rail">
+          <div class="rail-header">
+            <span class="rail-icon">📢</span>
+            <h3>Public Proof Rail</h3>
+            <span class="rail-tag">#CATCH</span>
+          </div>
+          <ul class="rail-items">
+            <li>Origin region label (general)</li>
+            <li>Species and product form</li>
+            <li>Lot / scenario identifier</li>
+            <li>Case format and receiving status</li>
+            <li>Route summary (region only)</li>
+            <li>QR proof status</li>
+            <li>Conversion measured label</li>
+          </ul>
+        </div>
+        
+        <div class="rail-card private-rail">
+          <div class="rail-header">
+            <span class="rail-icon">🔒</span>
+            <h3>Private Operations Rail</h3>
+            <span class="rail-tag withheld">$CHECK · WITHHELD</span>
+          </div>
+          <ul class="rail-items">
+            <li>Exact GPS coordinates</li>
+            <li>Settlement & invoice line items</li>
+            <li>Price and margin</li>
+            <li>Identity-control records</li>
+            <li>Evidence-control documents</li>
+            <li>Commercial-control data</li>
+            <li>Recovery percentage formula</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Governance -->
+    <section class="governance-section">
+      <h2 class="section-title">Governance Support</h2>
+      
+      <div class="gov-grid">
+        <div class="gov-card">
+          <h4>SIMP Review Support</h4>
+          <p>SeaTrace supports SIMP-aligned record organization. Not a claim of NOAA certification or guaranteed compliance.</p>
+        </div>
+        <div class="gov-card">
+          <h4>FSMA 204 Record Discipline</h4>
+          <p>Designed to help prepare records that may support FSMA 204 traceability requirements. Not a federal verification claim.</p>
+        </div>
+        <div class="gov-card">
+          <h4>MSC Blue-Label Gate</h4>
+          <p>Status is <strong>WITHHELD</strong>. Any MSC certification claim requires Owner GO-MSC-LABEL with full documentation.</p>
+        </div>
+        <div class="gov-card">
+          <h4>Scenario-Safe Only</h4>
+          <p>This demo uses synthetic data. No real purchase orders. No live vessel tracking. No actual customer records.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <div class="footer-left">
+        <span>SeaTrace · WSP001</span>
+        <span class="footer-divider">|</span>
+        <span>Commons Good · worldseafoodproducers.com</span>
+      </div>
+      <div class="footer-right">
+        <span>Scenario-safe public rail</span>
+        <span class="footer-divider">|</span>
+        <span>MSC gate: WITHHELD</span>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script src="assets/js/msc-v007-demo.js"></script>
+</body>
+</html>

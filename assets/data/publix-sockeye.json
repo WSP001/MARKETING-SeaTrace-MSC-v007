@@ -1,0 +1,275 @@
+{
+  "scenario": {
+    "id": "CID-H7-PUBLIX-4P3L",
+    "mode": "public_scenario",
+    "title": "Peter Pan × Publix Sockeye Proof Board",
+    "scenario_lot_id": "SCN-LOT-2026-PUB-01",
+    "demo_lot": "DEMO-PP-PUBLIX-SOCKEYE-001",
+    "sku": "SOCKEYE-FILLET-10LB-BOX-DEMO",
+    "species_label": "Alaska sockeye salmon",
+    "product_format": "10 lb boxed fillets",
+    "public_note": "Scenario-safe demonstration. No raw invoices, prices, margins, exact GPS, or protected customer records are displayed.",
+    "msc_gate": "WITHHELD"
+  },
+  "flow": [
+    {
+      "step_id": 0,
+      "pillar": "SeaSide",
+      "stage": "HOLD",
+      "label": "Root Source",
+      "public_key": "Public Origin Key",
+      "state": "hold.created",
+      "headline": "Origin context held",
+      "display_fields": {
+        "scenario_vessel_ref": "SCN-FV-042",
+        "vessel_class": "small commercial salmon vessel",
+        "general_region": "Alaska sockeye scenario region",
+        "trip_window": "2026-06-10 to 2026-06-13",
+        "signal_source_type": "scenario AIS/permit signal"
+      },
+      "locked_private_fields": [
+        "vessel identity (MMSI/IMO)",
+        "owner",
+        "captain",
+        "crew names",
+        "precise location trail (exact GPS)"
+      ],
+      "next": "Receiving Lot"
+    },
+    {
+      "step_id": 1,
+      "pillar": "DeckSide",
+      "stage": "RECORD",
+      "label": "Receiving Lot",
+      "public_key": "Public #CATCH Estimate Key",
+      "state": "record.created",
+      "headline": "#CATCH estimate recorded",
+      "display_fields": {
+        "catch_estimate_id": "SCN-CATCH-PUB-01",
+        "species_common_name": "sockeye salmon",
+        "weight_band": "scenario estimate band",
+        "projected_grade": "scenario A/B mix",
+        "mutable_status": "draft"
+      },
+      "locked_private_fields": [
+        "crew notes",
+        "hold map detail",
+        "exception notes",
+        "protected estimate sheet",
+        "pre-reconciliation exact weight"
+      ],
+      "next": "Weight Band"
+    },
+    {
+      "step_id": 2,
+      "pillar": "DeckSide",
+      "stage": "RECORD",
+      "label": "Weight Band",
+      "public_key": "Public #CATCH Estimate Key",
+      "state": "record.estimated",
+      "headline": "Weight band estimated",
+      "display_fields": {
+        "weight_band": "scenario estimate range",
+        "status": "draft/mutable",
+        "projected_case_count": "estimated range"
+      },
+      "locked_private_fields": [
+        "exact deck weight",
+        "hold-by-hold breakdown",
+        "raw recovery percentage",
+        "plant economics formula"
+      ],
+      "next": "Processing"
+    },
+    {
+      "step_id": 3,
+      "pillar": "DockSide",
+      "stage": "STORE",
+      "label": "Processing",
+      "public_key": "Public #HARVEST Index Key",
+      "state": "store.processing",
+      "headline": "Processing at dockside",
+      "display_fields": {
+        "processing_stage": "freshpack fillet",
+        "custody_review": "scenario: PASS",
+        "receiving_label": "cold chain receipt"
+      },
+      "locked_private_fields": [
+        "processing plant identity",
+        "production line records",
+        "quality control sheets",
+        "labor cost allocation"
+      ],
+      "next": "Case Count"
+    },
+    {
+      "step_id": 4,
+      "pillar": "DockSide",
+      "stage": "STORE",
+      "label": "Case Count",
+      "public_key": "Public #HARVEST Index Key",
+      "state": "store.confirmed",
+      "headline": "#HARVEST actual confirmed",
+      "display_fields": {
+        "harvest_index_id": "SCN-HARVEST-PUB-01",
+        "finished_case_count": "scenario case count",
+        "case_format": "10 lb IQF boxes",
+        "recovery_label": "conversion measured",
+        "variance_label": "within range"
+      },
+      "locked_private_fields": [
+        "scale-ticket detail",
+        "raw recovery percentage (never shown)",
+        "unit cost",
+        "margin",
+        "commercial calculation",
+        "repayment ledger"
+      ],
+      "next": "PO Match State"
+    },
+    {
+      "step_id": 5,
+      "pillar": "MarketSide",
+      "stage": "EXCHANGE",
+      "label": "PO Match State",
+      "public_key": "Public Buyer Proof Key",
+      "state": "exchange.pending",
+      "headline": "Purchase order matching",
+      "display_fields": {
+        "po_ref": "SCN-PO-PUB-SOCKEYE-01",
+        "po_balance_state": "scenario partial",
+        "match_status": "pending"
+      },
+      "locked_private_fields": [
+        "actual PO number",
+        "contract terms",
+        "price per pound",
+        "volume commitments",
+        "delivery windows"
+      ],
+      "next": "Warehouse Route"
+    },
+    {
+      "step_id": 6,
+      "pillar": "MarketSide",
+      "stage": "EXCHANGE",
+      "label": "Warehouse Route",
+      "public_key": "Public Buyer Proof Key",
+      "state": "exchange.routed",
+      "headline": "Distribution route assigned",
+      "display_fields": {
+        "warehouse_ref": "SCN-WH-PUB-ATL-01",
+        "route_summary": "AK → SE Distribution",
+        "custody_status": "in transit"
+      },
+      "locked_private_fields": [
+        "exact warehouse location",
+        "carrier identity",
+        "delivery schedules",
+        "temperature logs",
+        "freight cost allocation"
+      ],
+      "next": "Store Program"
+    },
+    {
+      "step_id": 7,
+      "pillar": "MarketSide",
+      "stage": "EXCHANGE",
+      "label": "Store Program",
+      "public_key": "Public Buyer Proof Key",
+      "state": "exchange.programmed",
+      "headline": "Retail program active",
+      "display_fields": {
+        "buyer_program": "Publix Program Label",
+        "store_region": "Southeast",
+        "program_status": "active"
+      },
+      "locked_private_fields": [
+        "store-level pricing",
+        "promotional calendar",
+        "inventory targets",
+        "margin requirements",
+        "category manager identity"
+      ],
+      "next": "QR Proof"
+    },
+    {
+      "step_id": 8,
+      "pillar": "MarketSide",
+      "stage": "EXCHANGE",
+      "label": "QR Proof",
+      "public_key": "Public Buyer Proof Key",
+      "state": "exchange.released",
+      "headline": "Buyer-safe proof released",
+      "display_fields": {
+        "buyer_proof_id": "SCN-PROOF-PUB-01",
+        "po_ref": "SCN-PO-PUB-SOCKEYE-01",
+        "warehouse_ref": "SCN-WH-PUB-ATL-01",
+        "qr_proof_status": "READY",
+        "trace_depth": "full chain",
+        "public_access": "enabled"
+      },
+      "locked_private_fields": [
+        "private pricing",
+        "unit cost",
+        "contract price",
+        "margin",
+        "invoice lines",
+        "customer terms",
+        "authentication tokens",
+        "database secrets",
+        "private ledger keys"
+      ],
+      "next": null
+    }
+  ],
+  "qr_trace": {
+    "id": "SCN-QR-PUB-01",
+    "forward_path": [
+      "Root sockeye source",
+      "SeaSide HOLD",
+      "DeckSide RECORD",
+      "DockSide STORE",
+      "MarketSide EXCHANGE",
+      "Publix Seafood Counter"
+    ],
+    "reverse_path": [
+      "Consumer QR Scan at Counter",
+      "Publix Seafood Counter",
+      "Warehouse PO",
+      "DockSide Scale",
+      "DeckSide Catch Estimate",
+      "SeaSide Scenario Pings",
+      "Root Alaska Origin"
+    ],
+    "public_capabilities": [
+      "View public origin context",
+      "See four-pillar flow summary",
+      "Verify scenario-safe labels",
+      "Trace chain without private values"
+    ],
+    "private_withheld": [
+      "auth tokens",
+      "database secrets",
+      "private repo paths",
+      "buyer economics",
+      "settlement records"
+    ]
+  },
+  "governance": {
+    "simp_alignment": "SeaTrace supports SIMP-aligned record organization — not a claim of NOAA certification",
+    "fsma_204_support": "Designed to help prepare records that may support FSMA 204 requirements — not federal verification",
+    "msc_status": "WITHHELD — no MSC certification claim without Owner GO-MSC-LABEL",
+    "licensing": {
+      "public_catch": "Unlimited license for public #CATCH data",
+      "private_check": "Limited license for private $CHECK data"
+    }
+  },
+  "meta": {
+    "version": "MSC-v007",
+    "created": "2026-06-05",
+    "rail": "public-campaign",
+    "noindex": true,
+    "disclaimer": "This is a scenario-safe demonstration only. No real purchase order, no live partnership authorization, no actual customer records disclosed."
+  }
+}
