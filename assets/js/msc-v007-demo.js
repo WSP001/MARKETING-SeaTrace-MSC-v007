@@ -285,9 +285,20 @@ function runStep(stepIndex) {
   // Update trace visualization
   updateTraceSteps(stepIndex);
   
-  // Scroll to boards if needed
+  // Scroll to boards if needed (mobile optimization)
   if (window.innerWidth < 900) {
-    document.getElementById('boards-container')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    setTimeout(() => {
+      const boards = document.getElementById('boards-container');
+      if (boards) {
+        const offset = 80; // Account for horizontal nav
+        const elementPosition = boards.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
   }
 }
 

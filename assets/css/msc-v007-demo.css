@@ -104,9 +104,63 @@ body{
   min-height:100vh;
 }
 
+/* ── Mobile Layout (Sidebar becomes horizontal header) ── */
 @media(max-width:900px){
   .layout{
     grid-template-columns:1fr;
+  }
+  
+  .sidebar{
+    position:relative;
+    height:auto;
+    max-height:none;
+    border-right:none;
+    border-bottom:1px solid var(--border);
+    padding:16px;
+    overflow-y:visible;
+  }
+  
+  .sidebar-nav{
+    flex-direction:row;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    gap:8px;
+    padding-bottom:8px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  
+  .sidebar-nav::-webkit-scrollbar{
+    display:none;
+  }
+  
+  .nav-item{
+    flex-shrink:0;
+    padding:8px 12px;
+    font-size:11px;
+    min-width:fit-content;
+  }
+  
+  .nav-num{
+    display:none;
+  }
+  
+  .sidebar-footer{
+    display:none;
+  }
+  
+  .sidebar-header{
+    padding-bottom:12px;
+    margin-bottom:12px;
+  }
+  
+  /* Disable scanlines on mobile for performance */
+  .scanlines{
+    display:none;
+  }
+  
+  .scanbar{
+    display:none;
   }
 }
 
@@ -250,7 +304,27 @@ body{
 
 @media(max-width:900px){
   .main{
-    padding:20px 16px;
+    padding:16px 12px;
+    overflow-x:hidden;
+  }
+  
+  .hero{
+    padding:24px 16px;
+  }
+  
+  .hero h1{
+    font-size:1.5rem;
+  }
+  
+  .scenario-chips{
+    flex-direction:column;
+    gap:8px;
+  }
+  
+  .chip{
+    flex-direction:row;
+    align-items:center;
+    gap:12px;
   }
 }
 
@@ -457,9 +531,48 @@ body{
   margin-bottom:24px;
 }
 
+/* ── Taskbar ── */
+.taskbar{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
+  gap:10px;
+  margin-bottom:24px;
+}
+
 @media(min-width:800px){
   .taskbar{
     grid-template-columns:repeat(9,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .taskbar{
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+  }
+  
+  .task-btn{
+    padding:10px 6px;
+    min-height:60px;
+  }
+  
+  .step-label{
+    font-size:9px;
+  }
+  
+  .panel-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
+  
+  .demo-panel{
+    padding:16px;
+  }
+  
+  .boundary-banner{
+    flex-direction:column;
+    gap:8px;
   }
 }
 
@@ -567,6 +680,15 @@ body{
 @media(max-width:800px){
   .dual-board{
     grid-template-columns:1fr;
+    gap:16px;
+  }
+  
+  .board{
+    min-height:150px;
+  }
+  
+  .board-content{
+    padding:16px;
   }
 }
 
@@ -916,6 +1038,22 @@ body{
 @media(max-width:700px){
   .split-ribbon{
     grid-template-columns:1fr;
+  }
+  
+  .rail-card{
+    padding:16px;
+  }
+  
+  .rail-items li{
+    font-size:10px;
+  }
+  
+  .gov-grid{
+    grid-template-columns:1fr;
+  }
+  
+  .gov-card{
+    padding:16px;
   }
 }
 
