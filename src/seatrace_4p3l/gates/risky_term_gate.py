@@ -10,12 +10,11 @@ SCAN_SUFFIXES = {".py", ".json"}
 
 
 def _should_scan(path: Path) -> bool:
-    text = str(path)
     if path.suffix not in SCAN_SUFFIXES:
         return False
-    if "/gates/" in text or "__pycache__" in text:
+    if "gates" in path.parts or "__pycache__" in path.parts:
         return False
-    if "private_records.py" in text:
+    if path.name == "private_records.py":
         return False
     return True
 

@@ -24,10 +24,10 @@ just verify
 
 | Check | Result |
 |---|---|
-| Unit/schema tests | PASS — 6 passed |
-| Flow tests | PASS — 4 passed |
+| Unit/schema tests | PASS — 9 passed |
+| Flow tests | PASS — 9 passed |
 | Agent contract tests | PASS — 4 passed |
-| Gate tests | PASS — 3 passed |
+| Gate tests | PASS — 6 passed |
 | Public/private gate | PASS |
 | No-orphan event gate | PASS |
 | Risky-term gate | PASS |

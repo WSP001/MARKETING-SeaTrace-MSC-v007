@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import pytest
+
 from seatrace_4p3l.schemas.public_packets import (
     BuyerProofPacket,
     CatchEstimatePacket,
@@ -24,9 +26,5 @@ def test_scenario_ids_must_be_scn_prefixed(incoming_receiving_fixture):
     bad = dict(incoming_receiving_fixture["seaside"])
     bad["scenario_id"] = "REAL-LOT-001"
 
-    try:
+    with pytest.raises(ValueError, match="SCN-"):
         OriginContextPacket.model_validate(bad)
-    except ValueError as exc:
-        assert "SCN-" in str(exc)
-    else:
-        raise AssertionError("non-scenario ID should fail")

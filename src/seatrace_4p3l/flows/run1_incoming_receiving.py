@@ -9,6 +9,7 @@ from seatrace_4p3l.etl.receiving_adapter import (
     build_origin_context,
     reconcile_receiving,
 )
+from seatrace_4p3l.schemas.enums import VarianceLabel
 
 
 def run_incoming_receiving(payload: dict[str, object]) -> dict[str, object]:
@@ -22,14 +23,14 @@ def run_incoming_receiving(payload: dict[str, object]) -> dict[str, object]:
         raise ValueError("DockSide packet must link to DeckSide catch_estimate_id")
 
     reconciliation = reconcile_receiving(catch, harvest)
-    if reconciliation.variance_label == "exception":
+    if reconciliation.variance_label == VarianceLabel.EXCEPTION:
         raise ValueError("MarketSide release blocked by exception variance")
 
     return {
         "origin_context_id": origin.origin_context_id,
         "catch_estimate_id": catch.catch_estimate_id,
         "harvest_index_id": harvest.harvest_index_id,
-        "variance_label": reconciliation.variance_label,
+        "variance_label": reconciliation.variance_label.value,
         "locked": True,
     }
 
