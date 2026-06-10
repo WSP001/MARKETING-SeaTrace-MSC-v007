@@ -55,6 +55,21 @@ seatrace-msc-v007/
         └── publix-sockeye.json # Public fixture data
 ```
 
+## Engineering Harness
+
+This repo also includes a separate SeaTrace 4P3L engineering harness under
+`src/seatrace_4p3l/`. The harness is not the campaign repo; it uses campaign
+spec docs as read-only contract references and provides schemas, fixtures,
+deterministic flows, offline-safe agent contract wrappers, safety gates, tests,
+and `just` recipes.
+
+```bash
+just install
+just verify
+```
+
+See `docs/4P3L_ENGINEERING_HARNESS.md`.
+
 ---
 
 ## Features

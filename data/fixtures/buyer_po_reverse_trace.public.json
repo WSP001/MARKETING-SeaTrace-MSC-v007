@@ -1,0 +1,35 @@
+{
+  "scenario_id": "SCN-LOT-2026-PUB-01",
+  "marketside": {
+    "scenario_id": "SCN-LOT-2026-PUB-01",
+    "buyer_proof_id": "SCN-PROOF-PUB-01",
+    "harvest_index_id": "SCN-HARVEST-PUB-01",
+    "trip_id": "TRIP-2026-SCN-0042",
+    "catch_estimate_id": "SCN-CATCH-PUB-01",
+    "traceability_lot_code": "SCN-LOT-2026-PUB-01",
+    "product_description": "10 lb boxed sockeye fillets",
+    "quantity": 457,
+    "quantity_uom": "scenario cases",
+    "ship_date": "2026-06-18",
+    "ship_from_location_general": "public warehouse region",
+    "ship_to_location_general": "retail program region",
+    "po_balance_state": "scenario-only",
+    "qr_trace_url": "https://example.invalid/scenario/SCN-QR-PUB-01",
+    "reverse_trace_status": "complete",
+    "proof_packet_status": "proof packet ready",
+    "chain_continuity_summary": "Origin context anchored at SeaSide; estimate captured at DeckSide; indexed actual reconciled at DockSide; buyer-safe proof assembled at MarketSide.",
+    "reverse_trace_path": [
+      "MarketSide proof request",
+      "DockSide receiving record",
+      "DeckSide estimate record",
+      "SeaSide origin context"
+    ],
+    "source_citations": [
+      "NOAA SIMP reference",
+      "FDA FSMA 204 reference"
+    ],
+    "cta_label": "request pilot packet",
+    "claim_summary": "Scenario-safe public proof chain with private commercial values withheld.",
+    "provenance_hash": "SCN-HASH-MARKETSIDE-001"
+  }
+}
