@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#01122E">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>SeaTrace · MSC-v007 · Peter Pan × Publix Sockeye Demo</title>
-<meta name="description" content="MSC-v007 scenario-safe seafood traceability demo. Four-pillar proof flow: SeaSide HOLD, DeckSide RECORD, DockSide STORE, MarketSide EXCHANGE. Alaska sockeye public demonstration.">
+<title>SeaTrace · MSC-v007 · Evidence Chain Demonstration</title>
+<meta name="description" content="MSC-v007 scenario-safe seafood traceability demo. Four-pillar proof flow: SeaSide HOLD, DeckSide RECORD, DockSide STORE, MarketSide EXCHANGE. Public demonstration with private operational records withheld.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -84,23 +84,49 @@
 
     <!-- Hero Section -->
     <section id="overview" class="hero">
-      <div class="hero-badge">MSC-v007 Public Demo · noindex</div>
-      <h1>Peter Pan × Publix<br><span class="highlight">Sockeye Proof Chain</span></h1>
-      <p class="hero-sub">Scenario-safe seafood traceability demonstration. Four-pillar proof flow from harvest origin to retail counter — without exposing private commercial terms.</p>
-      
-      <div class="boundary-banner">
-        <span class="banner-item"><span class="dot dot-green"></span>Public proof labels visible</span>
-        <span class="banner-item"><span class="dot dot-amber"></span>Private values: WITHHELD</span>
-        <span class="banner-item"><span class="dot dot-amber"></span>MSC certification: WITHHELD</span>
+      <div class="hero__content">
+        <div class="hero__eyebrow">MSC-v007 Public Proof Surface</div>
+        <h1 class="hero__title">SeaTrace Evidence Chain Demonstration</h1>
+        <p class="hero__subtitle">A live traceability workflow showing how origin, receiving, routing, and delivery states can be verified without exposing private operational records.</p>
+        <div class="hero__actions" aria-label="Primary proof surface actions">
+          <a class="btn btn--primary" href="#boards-container">View Workflow</a>
+          <a class="btn btn--secondary" href="#split">Review Public Proof</a>
+        </div>
+        <ul class="hero__chips" aria-label="Scenario state summary">
+          <li class="hero__chip">Origin Verified</li>
+          <li class="hero__chip">Receiving Recorded</li>
+          <li class="hero__chip">Route Matched</li>
+          <li class="hero__chip">Delivery Confirmed</li>
+        </ul>
       </div>
-      
-      <!-- Scenario ID Chips -->
-      <div class="scenario-chips">
-        <div class="chip"><span class="chip-label">Demo Lot</span><span class="chip-value">DEMO-PP-PUBLIX-SOCKEYE-001</span></div>
-        <div class="chip"><span class="chip-label">Species</span><span class="chip-value">Alaska Sockeye Salmon</span></div>
-        <div class="chip"><span class="chip-label">Format</span><span class="chip-value">10 lb Boxed Fillets</span></div>
-        <div class="chip"><span class="chip-label">Scenario Ref</span><span class="chip-value">SCN-LOT-2026-PUB-01</span></div>
-      </div>
+
+      <aside class="hero__panel" aria-label="Current proof state">
+        <div class="hero__panel-head">
+          <p class="hero__panel-label">State Clock · Scenario</p>
+          <span class="hero__panel-clock">T+00:00</span>
+        </div>
+        <h2 class="hero__panel-title">Operational proof state</h2>
+        <dl class="hero__stats">
+          <div class="hero__stat">
+            <dt>Rail</dt>
+            <dd>Public #CATCH</dd>
+          </div>
+          <div class="hero__stat">
+            <dt>Private Controls</dt>
+            <dd>Withheld</dd>
+          </div>
+          <div class="hero__stat">
+            <dt>Workflow</dt>
+            <dd>HOLD → EXCHANGE</dd>
+          </div>
+          <div class="hero__stat">
+            <dt>Public Claim</dt>
+            <dd>Scenario-safe</dd>
+          </div>
+        </dl>
+        <p class="hero__panel-note">No private customer records, precise location values, commercial closeout values, or certification claims are exposed in this public surface.</p>
+      </aside>
+      <div class="hero__progress" aria-hidden="true"><span></span></div>
     </section>
 
     <!-- Demo Controls -->
@@ -151,7 +177,8 @@
             <span class="step-label">Warehouse Route</span>
           </button>
           <button class="task-btn" data-step="7" onclick="runStep(7)">
-            <span class="step-num">08</n            <span class="step-label">Store Program</span>
+            <span class="step-num">08</span>
+            <span class="step-label">Store Program</span>
           </button>
           <button class="task-btn" data-step="8" onclick="runStep(8)">
             <span class="step-num">09</span>
@@ -224,7 +251,7 @@
             <div class="field public"><span class="field-label">Origin Region</span><span class="field-value">Pacific Northwest · AK</span></div>
             <div class="field public"><span class="field-label">Vessel Class</span><span class="field-value">Small Commercial Salmon</span></div>
             <div class="field public"><span class="field-label">Trip Window</span><span class="field-value">Scenario Range</span></div>
-            <div class="field withheld"><span class="field-label">Exact Coordinates</span><span class="field-value">WITHHELD</span></div>
+            <div class="field withheld"><span class="field-label">Precise Location Values</span><span class="field-value">WITHHELD</span></div>
           </div>
         </article>
         
@@ -251,12 +278,12 @@
           </div>
           <h3>DockSide</h3>
           <div class="pillar-mode">STORE</div>
-          <p>#HARVEST actual confirmed. Case format and custody review visible. Invoice lines withheld.</p>
+          <p>#HARVEST actual confirmed. Case format and custody review visible. Commercial document detail withheld.</p>
           <div class="pillar-fields">
             <div class="field public"><span class="field-label">Receiving Status</span><span class="field-value">Cold Chain Receipt</span></div>
             <div class="field public"><span class="field-label">Case Format</span><span class="field-value">IQF · 10 lb Cases</span></div>
             <div class="field public"><span class="field-label">Conversion Label</span><span class="field-value">Measured</span></div>
-            <div class="field withheld"><span class="field-label">Invoice Lines</span><span class="field-value">WITHHELD</span></div>
+            <div class="field withheld"><span class="field-label">Commercial Document Detail</span><span class="field-value">WITHHELD</span></div>
           </div>
         </article>
         
@@ -267,12 +294,12 @@
           </div>
           <h3>MarketSide</h3>
           <div class="pillar-mode">EXCHANGE</div>
-          <p>Buyer-safe proof released. Route summary and QR status visible. Price and margin withheld.</p>
+          <p>Buyer-safe proof released. Route summary and QR status visible. Commercial terms withheld.</p>
           <div class="pillar-fields">
             <div class="field public"><span class="field-label">Buyer Program</span><span class="field-value">Publix Program Label</span></div>
             <div class="field public"><span class="field-label">Route Summary</span><span class="field-value">AK → SE Distribution</span></div>
             <div class="field public"><span class="field-label">QR Proof Status</span><span class="field-value ready">READY</span></div>
-            <div class="field withheld"><span class="field-label">Price/Margin</span><span class="field-value">WITHHELD</span></div>
+            <div class="field withheld"><span class="field-label">Commercial Terms</span><span class="field-value">WITHHELD</span></div>
           </div>
         </article>
         
@@ -315,7 +342,7 @@
       
       <div class="run-scenario-wrap">
         <button class="run-btn" onclick="runFullScenario()">▶ Run Full Scenario</button>
-        <p class="run-note">Simulates the complete public proof trace. No backend. No private documents. No live API.</p>
+        <p class="run-note">Simulates the complete public proof trace. No backend connection. No private documents. No production integration.</p>
       </div>
     </section>
 
@@ -349,8 +376,8 @@
           </div>
           <ul class="rail-items">
             <li>Exact GPS coordinates</li>
-            <li>Settlement & invoice line items</li>
-            <li>Price and margin</li>
+            <li>Commercial closeout line items</li>
+            <li>Commercial terms</li>
             <li>Identity-control records</li>
             <li>Evidence-control documents</li>
             <li>Commercial-control data</li>

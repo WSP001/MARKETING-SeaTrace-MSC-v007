@@ -1,6 +1,15 @@
-# SeaTrace MSC-v007 Demo
+# Public MSC-v007.5
 
-**Peter Pan × Publix Sockeye Proof Chain Demonstration**
+## SeaTrace Supply Evidence Chain Demonstration
+
+A live traceability workflow showing how origin, receiving, routing, and delivery states can be verified without exposing private operational records.
+Primary CTA: View Workflow
+Secondary CTA: Review Public Proof
+Proof chips:
+- Origin Verified
+- Receiving Recorded
+- Route Matched
+- Delivery Confirmed
 
 > ⚠️ **SCENARIO-SAFE DEMO ONLY** — No real purchase order, no live partnership authorization, no actual customer records disclosed.
 
