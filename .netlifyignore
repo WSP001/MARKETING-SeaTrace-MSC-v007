@@ -1,0 +1,12 @@
+# Ignore private directories and files for Netlify deployments
+src/
+tests/
+docs/
+data/
+.git/
+.netlify/
+justfile
+pyproject.toml
+poetry.lock
+*.md
+*.py

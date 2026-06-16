@@ -24,7 +24,7 @@ MSC-v007 is a standalone public demonstration of the SeaTrace four-pillar proof 
 ### Local Development
 
 ```bash
-cd C:\WSP001\seatrace-msc-v007
+cd seatrace-msc-v007
 python -m http.server 8080
 ```
 
@@ -191,7 +191,7 @@ All fields use "scenario-safe" labels:
 
 **Design patterns derived from:**
 - `seatrace-campaign` — SeaTrace scanlines, color palette, globe animation
-- OneDrive prototype — Sidebar navigation, card layout, trace visualization
+- Interface prototype — Sidebar navigation, card layout, trace visualization
 
 **Owner**: Roberto Scott Echols (WSP001)  
 **Built**: 2026-06-05  
