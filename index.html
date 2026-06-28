@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/msc-v007-demo.css">
+<link rel="stylesheet" href="assets/wsp-brand/wsp-identity-logo.css">
 </head>
 <body>
 
@@ -27,13 +28,12 @@
   <nav class="sidebar" aria-label="MSC-v007 scenario navigation">
     <div class="sidebar-header">
       <div class="logo-wrap">
-        <svg class="logo-globe" viewBox="0 0 40 40" aria-hidden="true">
-          <circle cx="20" cy="20" r="18" stroke="#00E5FF" stroke-width="1.5" opacity="0.6"/>
-          <circle cx="20" cy="20" r="12" stroke="#00E5FF" stroke-width="1.5"/>
-          <path d="M20 8 A12 12 0 0 1 32 20" stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M20 32 A12 12 0 0 1 8 20" stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round"/>
-          <circle cx="20" cy="20" r="3" fill="#00E5FF"/>
-        </svg>
+        <div class="wsp-identity-logo" aria-label="World Seafood Producers SeaTrace logo">
+          <span class="wsp-identity-logo__globe" aria-hidden="true">
+            <canvas class="wsp-identity-logo__canvas" data-wsp-identity-globe width="96" height="96"></canvas>
+          </span>
+          <img class="wsp-identity-logo__ring" src="assets/wsp-brand/wsp-logo.webp" alt="">
+        </div>
       </div>
       <div class="logo-text">
         <div class="logo-title">SeaTrace</div>
@@ -150,31 +150,31 @@
         <div class="taskbar" role="toolbar" aria-label="Proof flow steps">
           <button class="task-btn" data-step="0" onclick="runStep(0)">
             <span class="step-num">01</span>
-            <span class="step-label">Root Source</span>
+            <span class="step-label">Origin Hold</span>
           </button>
           <button class="task-btn" data-step="1" onclick="runStep(1)">
             <span class="step-num">02</span>
-            <span class="step-label">Receiving Lot</span>
+            <span class="step-label">Incoming Receiving</span>
           </button>
           <button class="task-btn" data-step="2" onclick="runStep(2)">
             <span class="step-num">03</span>
-            <span class="step-label">Weight Band</span>
+            <span class="step-label">Receiving Check</span>
           </button>
           <button class="task-btn" data-step="3" onclick="runStep(3)">
             <span class="step-num">04</span>
-            <span class="step-label">Processing</span>
+            <span class="step-label">Production Stage</span>
           </button>
           <button class="task-btn" data-step="4" onclick="runStep(4)">
             <span class="step-num">05</span>
-            <span class="step-label">Case Count</span>
+            <span class="step-label">Finished Cases</span>
           </button>
           <button class="task-btn" data-step="5" onclick="runStep(5)">
             <span class="step-num">06</span>
-            <span class="step-label">PO Match State</span>
+            <span class="step-label">Delivery Match</span>
           </button>
           <button class="task-btn" data-step="6" onclick="runStep(6)">
             <span class="step-num">07</span>
-            <span class="step-label">Warehouse Route</span>
+            <span class="step-label">Outgoing Route</span>
           </button>
           <button class="task-btn" data-step="7" onclick="runStep(7)">
             <span class="step-num">08</span>
@@ -182,7 +182,7 @@
           </button>
           <button class="task-btn" data-step="8" onclick="runStep(8)">
             <span class="step-num">09</span>
-            <span class="step-label">QR Proof</span>
+            <span class="step-label">Delivery Proof</span>
           </button>
         </div>
         
@@ -239,7 +239,7 @@
       <h2 class="section-title">Four Pillar Overview</h2>
       <div class="pillar-cards">
         
-        <article class="pillar-card" id="seaside">
+        <article class="pillar-card" id="seaside" role="button" tabindex="0" data-step-start="0">
           <div class="pillar-header">
             <span class="pillar-num">01</span>
             <div class="pillar-icon">⚓</div>
@@ -255,7 +255,7 @@
           </div>
         </article>
         
-        <article class="pillar-card" id="deckside">
+        <article class="pillar-card" id="deckside" role="button" tabindex="0" data-step-start="1">
           <div class="pillar-header">
             <span class="pillar-num">02</span>
             <div class="pillar-icon">📝</div>
@@ -271,7 +271,7 @@
           </div>
         </article>
         
-        <article class="pillar-card" id="dockside">
+        <article class="pillar-card" id="dockside" role="button" tabindex="0" data-step-start="3">
           <div class="pillar-header">
             <span class="pillar-num">03</span>
             <div class="pillar-icon">🏭</div>
@@ -287,7 +287,7 @@
           </div>
         </article>
         
-        <article class="pillar-card" id="marketside">
+        <article class="pillar-card" id="marketside" role="button" tabindex="0" data-step-start="5">
           <div class="pillar-header">
             <span class="pillar-num">04</span>
             <div class="pillar-icon">🌐</div>
@@ -428,6 +428,7 @@
   </main>
 </div>
 
+<script src="assets/wsp-brand/wsp-identity-logo.js"></script>
 <script src="assets/js/msc-v007-demo.js"></script>
 </body>
 </html>

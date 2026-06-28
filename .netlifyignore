@@ -3,6 +3,7 @@ src/
 tests/
 docs/
 data/
+config/
 .git/
 .netlify/
 justfile

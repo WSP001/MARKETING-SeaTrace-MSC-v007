@@ -1,0 +1,13 @@
+{
+  "rail": "public",
+  "domain": "worldseafoodproducers.com",
+  "publicSurfaces": {
+    "wspHome": "https://worldseafoodproducers.com/",
+    "seaTracePublic": "https://seatrace.worldseafoodproducers.com/",
+    "mscV007Preview": "https://6a30aec613dfbd4978881136--seatrace-msc-v007.netlify.app/"
+  },
+  "logo": {
+    "staticUrl": "/assets/wsp-brand/wsp-logo.webp",
+    "component": "wsp-identity-logo"
+  }
+}
