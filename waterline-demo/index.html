@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#01122E">
+<title>WAFC-GGSE REELS — Synthetic Seafood Traceability · waterline-demo</title>
+<meta name="description" content="Browser-only synthetic illustration of a catch-to-exchange chain. Incoming receiving-weight emulation unlocks an outgoing delivery reverse-trace, linked by packet_id. Fabricated data only, noindex.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="waterline.css">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+<div class="scanbar" aria-hidden="true"></div>
+
+<!-- Idle gate (90s) -->
+<div class="idle-gate" id="idle-gate" hidden>
+  <div class="idle-card">
+    <div class="idle-icon">⏱</div>
+    <h2>Session gated</h2>
+    <p>90-second idle timeout reached. The reel paused itself. Resume exactly where it stopped.</p>
+    <button class="btn btn-primary" id="resume-btn" type="button">▶ Resume reel</button>
+  </div>
+</div>
+
+<!-- Synthetic demo banner -->
+<div class="synthetic-banner" role="note">
+  <strong>SYNTHETIC DEMO — ALL DATA IS FABRICATED.</strong>
+  No real parties, vessels, locations, weights, or prices. For illustration of the traceability model only.
+</div>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" aria-label="waterline-demo navigation">
+    <div class="sidebar-header">
+      <div class="logo-wrap">
+        <svg class="logo-globe" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" stroke="#00E5FF" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="20" cy="20" r="12" stroke="#00E5FF" stroke-width="1.5"/>
+          <path d="M20 8 A12 12 0 0 1 32 20" stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M20 32 A12 12 0 0 1 8 20" stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="20" cy="20" r="3" fill="#00E5FF"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <div class="logo-title">WAFC-GGSE REELS</div>
+        <div class="logo-sub">waterline-demo</div>
+      </div>
+    </div>
+    <div class="sidebar-nav">
+      <a class="nav-item" href="#kickoff"><span class="nav-num">00</span><span class="nav-label">Click2Kickoff</span></a>
+      <a class="nav-item" href="#incoming"><span class="nav-num">01</span><span class="nav-label">Incoming Receiving</span></a>
+      <a class="nav-item" href="#outgoing"><span class="nav-num">02</span><span class="nav-label">Outgoing Delivery</span></a>
+      <a class="nav-item" href="#commit"><span class="nav-num">03</span><span class="nav-label">Atomic Commit</span></a>
+      <a class="nav-item" href="#split"><span class="nav-num">04</span><span class="nav-label">Public / Private Split</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="rail-badge">Rail #1 — Public Campaign</div>
+      <div class="msc-status">MSC Blue-Label: <strong>WITHHELD</strong></div>
+      <div class="scenario-note">Synthetic scenario-safe demo only</div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Hero -->
+    <section id="kickoff" class="hero">
+      <div class="hero-badge">Browser-only synthetic illustration · noindex</div>
+      <h1>TideReels — <span class="highlight">Synthetic Seafood Traceability</span></h1>
+      <p class="hero-sub">A browser-only illustration of how a catch-to-exchange chain stays whole while the public view stays simple.</p>
+
+      <div class="party-grid">
+        <div class="party-card">
+          <span class="party-role">Originating party</span>
+          <span class="party-name">Harbor Fishing Cooperative</span>
+          <span class="party-id">SYN-CO-WAFC</span>
+        </div>
+        <div class="party-card">
+          <span class="party-role">Receiving party</span>
+          <span class="party-name">Coastal Seafood Exchange</span>
+          <span class="party-id">SYN-CO-GGSE</span>
+        </div>
+        <div class="party-card">
+          <span class="party-role">Scenario trip</span>
+          <span class="party-name">Reel #SCN-TRIP-0007</span>
+          <span class="party-id">Shared ledger</span>
+        </div>
+        <div class="party-card">
+          <span class="party-role">Zone</span>
+          <span class="party-name">Synthetic Zone A</span>
+          <span class="party-id">no GPS · MOCK-COORD</span>
+        </div>
+      </div>
+
+      <!-- Stage spine -->
+      <div class="spine" id="stage-spine" aria-label="Four-pillar stage spine"></div>
+
+      <div class="kickoff-wrap">
+        <button class="btn btn-kickoff" id="kickoff-btn" type="button">
+          <span class="kickoff-dot"></span><span id="kickoff-label">Click2Kickoff</span>
+        </button>
+        <p class="kickoff-note" id="kickoff-note">Idle until you start it. Nothing runs until you say go.</p>
+      </div>
+    </section>
+
+    <!-- Incoming reel -->
+    <section id="incoming" class="reel-section" aria-disabled="true">
+      <div class="reel-head">
+        <h2>▶ Incoming Receiving Weights <span class="reel-kind">(Emulation)</span></h2>
+      </div>
+      <p class="reel-sub">Plays SeaSide → DeckSide → DockSide, then unlocks the outgoing reel.</p>
+
+      <div class="filmstrip" id="incoming-strip" aria-label="Incoming receiving filmstrip"></div>
+
+      <div class="reel-controls">
+        <button class="btn btn-play" id="in-play" type="button">▶ Play emulation</button>
+        <button class="btn btn-ghost" id="in-step" type="button">⏭ Step</button>
+        <button class="btn btn-ghost" id="in-reset" type="button">↺ Reset</button>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="in-progress"></div></div>
+        <span class="progress-label" id="in-status">Idle — run the incoming reel to begin the emulation.</span>
+      </div>
+
+      <h3 class="cards-title">Receiving Wait Cards</h3>
+      <div class="wait-cards" id="wait-cards">
+        <div class="empty-state"><div class="empty-icon">📥</div><p>Received-weight cards queue here as each stage commits.</p></div>
+      </div>
+    </section>
+
+    <!-- Outgoing reel -->
+    <section id="outgoing" class="reel-section locked" aria-disabled="true">
+      <div class="reel-head">
+        <h2>Outgoing Delivery Measures <span class="reel-kind">(Simulation)</span></h2>
+        <span class="lock-chip" id="out-lock">🔒 Locked — finish incoming</span>
+      </div>
+      <p class="reel-sub">Reverse trace: store → dock → deck → sea, with a <code>packet_id</code> match.</p>
+
+      <div class="filmstrip reverse" id="outgoing-strip" aria-label="Outgoing delivery filmstrip"></div>
+
+      <div class="reel-controls">
+        <button class="btn btn-play" id="out-play" type="button" disabled>◀ Play reverse trace</button>
+        <button class="btn btn-ghost" id="out-fwd" type="button" disabled>Forward ▶</button>
+        <button class="btn btn-ghost" id="out-back" type="button" disabled>◀ Backward</button>
+        <button class="btn btn-ghost" id="out-reset" type="button" disabled>↺ Reset</button>
+      </div>
+
+      <div class="match-panel">
+        <div class="match-head">packet_id reconciliation · spine SCN-TRIP-0007</div>
+        <div class="match-body" id="match-body">
+          <div class="empty-state"><div class="empty-icon">🔗</div><p>Step the delivery reel to match each node back to the originating record.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Parallel mode -->
+    <section class="parallel-section">
+      <div class="parallel-inner">
+        <div>
+          <h3>Run both reels in parallel</h3>
+          <p>Incoming emulation moves synchronously forward while the outgoing trace runs asynchronously in reverse — the way the real chain reconciles both directions at once.</p>
+        </div>
+        <button class="btn btn-primary" id="play-both" type="button">⇅ Play Both (parallel)</button>
+      </div>
+    </section>
+
+    <!-- Atomic commit boards -->
+    <section id="commit" class="boards-section">
+      <div class="commit-banner" id="commit-banner"><span class="commit-dot"></span><span id="commit-banner-text">Awaiting kickoff — no writes yet.</span></div>
+      <p class="reel-sub center">Both boards update from a single atomic commit — the public band and the private withholding are two views of one write.</p>
+      <div class="dual-board">
+        <div class="board public-board" id="public-board">
+          <div class="board-header"><h3>Public Proof Band</h3><span class="board-badge public-badge">DISCLOSED</span></div>
+          <div class="board-content" id="public-fields">
+            <div class="empty-state"><div class="empty-icon">📋</div><p>Public proof fields appear here on each atomic commit.</p></div>
+          </div>
+        </div>
+        <div class="board private-board" id="private-board">
+          <div class="board-header"><h3>Private Rail</h3><span class="board-badge private-badge">$CHECK · WITHHELD</span></div>
+          <div class="board-content" id="private-fields">
+            <div class="empty-state"><div class="empty-icon">🔒</div><p>Private categories appear here — value withheld, never disclosed.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Public / private rail split summary -->
+    <section id="split" class="split-section">
+      <h2 class="section-title">Public / Private Rail Split</h2>
+      <div class="rail-split">
+        <div class="rail-col public">
+          <div class="rail-col-head"><span>Public rail</span><span class="rail-tag">Disclosed</span></div>
+          <div class="rail-row"><span class="rr-key">Received (incoming)</span><span class="rr-val" id="pub-received">—</span></div>
+          <div class="rail-row"><span class="rr-key">Delivered (outgoing)</span><span class="rr-val" id="pub-delivered">—</span></div>
+          <div class="rail-row"><span class="rr-key">Reconciliation</span><span class="rr-val" id="pub-recon">—</span></div>
+          <div class="rail-row"><span class="rr-key">Packet match</span><span class="rr-val" id="pub-match">—</span></div>
+        </div>
+        <div class="rail-col private">
+          <div class="rail-col-head"><span>Private rail</span><span class="rail-tag withheld">Withheld</span></div>
+          <div class="rail-row"><span class="rr-key">Received (incoming)</span><span class="rr-val" id="prv-received">—</span></div>
+          <div class="rail-row"><span class="rr-key">Delivered (outgoing)</span><span class="rr-val" id="prv-delivered">—</span></div>
+          <div class="rail-row"><span class="rr-key">Reconciliation</span><span class="rr-val" id="prv-recon">—</span></div>
+          <div class="rail-row"><span class="rr-key">Packet match</span><span class="rr-val" id="prv-match">—</span></div>
+        </div>
+      </div>
+
+      <details class="how-it-works">
+        <summary>How the public / private split works</summary>
+        <p>Net received and delivered weights are disclosable for traceability verification. Vessel identity, precise coordinates, per-trip cost, and raw commercial price are never exposed. A shared <code>packet_id</code> links both rails on the <strong>SCN-TRIP-0007</strong> spine without leaking either side. Every public band and its private withholding are two views of a single atomic write — both advance together, or neither advances.</p>
+      </details>
+
+      <table class="split-table" id="split-table">
+        <thead><tr><th>Stage</th><th>packet_id</th><th>Public band (disclosed)</th><th>Private rail (WITHHELD)</th></tr></thead>
+        <tbody id="split-tbody"></tbody>
+      </table>
+    </section>
+
+    <footer class="page-footer">
+      <div class="footer-left"><span>SeaTrace · WSP001</span><span class="footer-divider">|</span><span>Commons Good · worldseafoodproducers.com</span></div>
+      <div class="footer-right"><span>Non-indexable synthetic demo · demo@tidereels.example.invalid</span></div>
+    </footer>
+
+  </main>
+</div>
+
+<script src="waterline.js"></script>
+</body>
+</html>
