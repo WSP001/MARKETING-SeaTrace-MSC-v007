@@ -1,0 +1,9 @@
+{
+  "rail": "private",
+  "note": "Example only. Do not deploy. Real private URLs stay in operator notes or Netlify/GitHub secrets.",
+  "privateSurfaces": {
+    "operatorDashboard": "https://PRIVATE-OPERATOR-DASHBOARD.example.invalid/",
+    "agentRunnerAdmin": "https://PRIVATE-NETLIFY-AGENT-RUNNER.example.invalid/",
+    "internalGraph": "https://PRIVATE-GRAPH.example.invalid/"
+  }
+}

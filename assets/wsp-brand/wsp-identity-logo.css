@@ -1,0 +1,43 @@
+.wsp-identity-logo {
+  --wsp-logo-size: 56px;
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: var(--wsp-logo-size);
+  height: var(--wsp-logo-size);
+  flex: 0 0 auto;
+  isolation: isolate;
+}
+
+.wsp-identity-logo__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 2;
+  filter: drop-shadow(0 0 8px rgba(255, 90, 76, 0.35));
+}
+
+.wsp-identity-logo__globe {
+  position: absolute;
+  inset: 27%;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+  background: #063d4d;
+  box-shadow: inset -8px -6px 16px rgba(0, 0, 0, 0.38), 0 0 16px rgba(0, 229, 255, 0.35);
+}
+
+.wsp-identity-logo__canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wsp-identity-logo__canvas {
+    opacity: 0.85;
+  }
+}

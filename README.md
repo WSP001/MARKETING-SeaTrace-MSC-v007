@@ -1,6 +1,15 @@
-# SeaTrace MSC-v007 Demo
+# Public MSC-v007.5
 
-**Peter Pan × Publix Sockeye Proof Chain Demonstration**
+## SeaTrace Supply Evidence Chain Demonstration
+
+A live traceability workflow showing how origin, receiving, routing, and delivery states can be verified without exposing private operational records.
+Primary CTA: View Workflow
+Secondary CTA: Review Public Proof
+Proof chips:
+- Origin Verified
+- Receiving Recorded
+- Route Matched
+- Delivery Confirmed
 
 > ⚠️ **SCENARIO-SAFE DEMO ONLY** — No real purchase order, no live partnership authorization, no actual customer records disclosed.
 
@@ -24,7 +33,7 @@ MSC-v007 is a standalone public demonstration of the SeaTrace four-pillar proof 
 ### Local Development
 
 ```bash
-cd C:\WSP001\seatrace-msc-v007
+cd seatrace-msc-v007
 python -m http.server 8080
 ```
 
@@ -54,6 +63,21 @@ seatrace-msc-v007/
     └── data/
         └── publix-sockeye.json # Public fixture data
 ```
+
+## Engineering Harness
+
+This repo also includes a separate SeaTrace 4P3L engineering harness under
+`src/seatrace_4p3l/`. The harness is not the campaign repo; it uses campaign
+spec docs as read-only contract references and provides schemas, fixtures,
+deterministic flows, offline-safe agent contract wrappers, safety gates, tests,
+and `just` recipes.
+
+```bash
+just install
+just verify
+```
+
+See `docs/4P3L_ENGINEERING_HARNESS.md`.
 
 ---
 
@@ -176,7 +200,7 @@ All fields use "scenario-safe" labels:
 
 **Design patterns derived from:**
 - `seatrace-campaign` — SeaTrace scanlines, color palette, globe animation
-- OneDrive prototype — Sidebar navigation, card layout, trace visualization
+- Interface prototype — Sidebar navigation, card layout, trace visualization
 
 **Owner**: Roberto Scott Echols (WSP001)  
 **Built**: 2026-06-05  

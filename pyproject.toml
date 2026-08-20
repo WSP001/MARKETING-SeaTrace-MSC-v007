@@ -1,0 +1,26 @@
+[project]
+name = "seatrace-4p3l-harness"
+version = "0.1.0"
+description = "SeaTrace 4P3L engineering harness for schemas, fixtures, flows, agents, and gates."
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic>=2.7,<3",
+  "SQLAlchemy>=2.0,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+]
+
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"

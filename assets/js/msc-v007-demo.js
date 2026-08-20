@@ -23,7 +23,7 @@ const scenarioData = {
   steps: [
     {
       id: 0,
-      label: "Root Source",
+      label: "Origin Hold",
       pillar: "SeaSide",
       mode: "HOLD",
       publicFields: [
@@ -42,7 +42,7 @@ const scenarioData = {
     },
     {
       id: 1,
-      label: "Receiving Lot",
+      label: "Incoming Receiving",
       pillar: "DeckSide",
       mode: "RECORD",
       publicFields: [
@@ -61,7 +61,7 @@ const scenarioData = {
     },
     {
       id: 2,
-      label: "Weight Band",
+      label: "Receiving Check",
       pillar: "DeckSide",
       mode: "RECORD",
       publicFields: [
@@ -78,7 +78,7 @@ const scenarioData = {
     },
     {
       id: 3,
-      label: "Processing",
+      label: "Production Stage",
       pillar: "DockSide",
       mode: "STORE",
       publicFields: [
@@ -95,7 +95,7 @@ const scenarioData = {
     },
     {
       id: 4,
-      label: "Case Count",
+      label: "Finished Cases",
       pillar: "DockSide",
       mode: "STORE",
       publicFields: [
@@ -114,7 +114,7 @@ const scenarioData = {
     },
     {
       id: 5,
-      label: "PO Match State",
+      label: "Delivery Match",
       pillar: "MarketSide",
       mode: "EXCHANGE",
       publicFields: [
@@ -132,7 +132,7 @@ const scenarioData = {
     },
     {
       id: 6,
-      label: "Warehouse Route",
+      label: "Outgoing Route",
       pillar: "MarketSide",
       mode: "EXCHANGE",
       publicFields: [
@@ -168,7 +168,7 @@ const scenarioData = {
     },
     {
       id: 8,
-      label: "QR Proof",
+      label: "Delivery Proof",
       pillar: "MarketSide",
       mode: "EXCHANGE",
       publicFields: [
@@ -583,10 +583,24 @@ function initScrollSpy() {
 // Initialize
 // ═══════════════════════════════════════════════════════════════
 
+function initPillarCards() {
+  document.querySelectorAll('[data-step-start]').forEach((card) => {
+    const step = parseInt(card.dataset.stepStart, 10);
+    card.addEventListener('click', () => runStep(step));
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        runStep(step);
+      }
+    });
+  });
+}
+
 function init() {
   initSidebarNav();
   initKeyboardNav();
   initScrollSpy();
+  initPillarCards();
   
   console.log('🌊 SeaTrace MSC-v007 Demo initialized');
   console.log('📋 Scenario:', scenarioData.scenario.title);

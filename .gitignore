@@ -34,3 +34,11 @@ package-lock.json
 # Build artifacts (if ever added)
 dist/
 build/
+
+# Python harness
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.coverage
