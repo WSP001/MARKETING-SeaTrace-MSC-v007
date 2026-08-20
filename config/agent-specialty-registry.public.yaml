@@ -1,0 +1,145 @@
+schema_version: "1.0"
+registry_id: "ST-SPECIALTY-REGISTRY-001"
+status: "PROPOSED"
+authority: "Scott Echols / WSP001 — Commons Good"
+repository: "WSP001/MARKETING-SeaTrace-MSC-v007"
+go_green_authority: "OWNER_ONLY"
+
+readiness_ladder:
+  - LOCAL_GREEN
+  - GATE_GREEN
+  - DOC_GREEN
+  - GO_GREEN
+
+rails:
+  - PUBLIC
+  - COMPLIANCE
+  - PRIVATE
+  - SHARED_METADATA
+
+canonical_terms:
+  catch_public_projection: "#CATCH"
+  catch_private_projection: "$CHECK"
+  harvest_event: "#HARVEST"
+  harvest_compliance_lineage: "HARVEST_RAIL"
+  private_ledger_projection: "$BOOK"
+
+deprecated_aliases:
+  "$BOOKS": "$BOOK"
+
+specialties:
+  - specialty_id: "ST-ROUTER-001"
+    name: "Acting Master Router"
+    purpose: "Resolve assignment identity, repository, branch, rail, authority, dependencies, and termination state."
+    allowed_rails: [SHARED_METADATA]
+    mutations: "NONE_BY_DEFAULT"
+    recipe: "just assignment-check"
+    required_output: "routing receipt"
+    may_grant_owner_go: false
+
+  - specialty_id: "ST-CARTOGRAPHER-001"
+    name: "Metadata Cartographer"
+    purpose: "Inventory repositories, refs, paths, hashes, duplicate groups, and provenance without interpreting inaccessible content."
+    allowed_rails: [SHARED_METADATA]
+    mutations: "NONE"
+    recipe: "just source-census"
+    required_output: "source manifest"
+    may_grant_owner_go: false
+
+  - specialty_id: "ST-BOUNDARY-001"
+    name: "Waterline Boundary Classifier"
+    purpose: "Classify fields and transformations across PUBLIC, COMPLIANCE, PRIVATE, and SHARED_METADATA."
+    allowed_rails: [PUBLIC, COMPLIANCE, PRIVATE, SHARED_METADATA]
+    mutations: "SPEC_OR_TEST_ONLY"
+    recipe: "just rail-check"
+    required_output: "boundary classification receipt"
+    may_grant_owner_go: false
+
+  - specialty_id: "ST-SEASIDE-001"
+    name: "SeaSide Origin Context"
+    purpose: "Validate HOLD-stage identity, authorization context, generalized geography, time, gear, and target-species scope."
+    allowed_rails: [PUBLIC, COMPLIANCE, PRIVATE, SHARED_METADATA]
+    mutations: "BOUNDED_EVENT_APPEND"
+    recipe: "just seaside-hold-check"
+    required_output: "origin-context receipt"
+    may_grant_owner_go: false
+
+  - specialty_id: "ST-DECKSIDE-001"
+    name: "DeckSide Catch Pairing"
+    purpose: "Create mutable #CATCH and paired private $CHECK projections with explicit supersession."
+    allowed_rails: [PUBLIC, PRIVATE, SHARED_METADATA]
+    mutations: "BOUNDED_EVENT_APPEND"
+    recipe: "just catch-pairing-check"
+    required_output: "catch-pairing receipt"
+    may_grant_owner_go: false
+
+  - specialty_id: "ST-DOCKSIDE-001"
+    name: "DockSide Harvest Confirmation"
+    purpose: "Reconcile accepted measurement evidence, append HARVEST_RAIL events, and write exact records only to $BOOK."
+    allowed_rails: [COMPLIANCE, PRIVATE, SHARED_METADATA]
+    mutations: "BOUNDED_EVENT_APPEND"
+    recipe: "just harvest-gate-check"
+    required_output: "harvest verdict receipt"
+    may_grant_owner_go: false
+
+  - specialty_id: "ST-MARKETSIDE-001"
+    name: "MarketSide Public Proof"
+    purpose: "Consume approved projection envelopes and create buyer-safe EXCHANGE-stage proof."
+    allowed_rails: [PUBLIC, SHARED_METADATA]
+    mutations: "PUBLIC_ARTIFACT_BUILD_ONLY"
+    recipe: "just public-proof-check"
+    required_output: "public-proof receipt"
+    may_grant_owner_go: false
+
+  - specialty_id: "ST-REVERSE-001"
+    name: "Reverse Trace Verifier"
+    purpose: "Verify forward and reverse lineage while preventing public traversal into the private graph."
+    allowed_rails: [PUBLIC, COMPLIANCE, SHARED_METADATA]
+    mutations: "NONE"
+    recipe: "just reverse-trace-check"
+    required_output: "lineage verification receipt"
+    may_grant_owner_go: false
+
+  - specialty_id: "ST-WEBMASTER-001"
+    name: "Professional Webmaster"
+    purpose: "Render public pages only from approved public projection envelopes using governed tokens and accessibility rules."
+    allowed_rails: [PUBLIC, SHARED_METADATA]
+    mutations: "BOUNDED_PUBLIC_BUILD"
+    recipe: "just sample-url-proof"
+    required_output: "render and boundary receipt"
+    may_grant_owner_go: false
+
+  - specialty_id: "ST-VERIFIER-001"
+    name: "Independent Verifier"
+    purpose: "Re-derive repository identity, run gates, compare receipts with observable state, and report contradictions."
+    allowed_rails: [PUBLIC, COMPLIANCE, SHARED_METADATA]
+    mutations: "NONE"
+    recipe: "just verify"
+    required_output: "independent verification receipt"
+    may_grant_owner_go: false
+
+global_invariants:
+  - "An agent cannot create its own Owner approval."
+  - "Compliance does not mean public."
+  - "Unknown fields fail closed."
+  - "The public renderer never receives a mixed private/public object."
+  - "A failed reconciliation appends an exception event; it does not erase evidence."
+  - "Public reverse replay stops at authorized public/compliance lineage."
+  - "Receipts contain metadata, not raw private evidence."
+  - "Every mutation is bounded to one repository, branch, assignment, and declared path set."
+
+required_receipt_fields:
+  - assignment_id
+  - task_id
+  - specialty_id
+  - repository
+  - branch
+  - full_commit_sha
+  - input_hashes
+  - output_hashes
+  - rail
+  - gate_results
+  - blocked_count
+  - review_count
+  - termination_state
+  - owner_decision
