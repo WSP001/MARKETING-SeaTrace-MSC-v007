@@ -1,0 +1,16 @@
+{
+  "scenario_id": "SCN-LOT-2026-PUB-01",
+  "source_harvest_id": "SCN-HARVEST-PUB-01",
+  "traceability_lot_code": "SCN-LOT-2026-PUB-01",
+  "sku_label": "SOCKEYE-FILLET-10LB-BOX-DEMO",
+  "case_count_band": "scenario case count",
+  "package_format": "10 lb boxed fillets",
+  "qr_status": "public proof bundle ready",
+  "provenance_hash": "SCN-HASH-FINISHED-001",
+  "source_spine": {
+    "trip_id": "TRIP-2026-SCN-0042",
+    "catch_estimate_id": "SCN-CATCH-PUB-01",
+    "harvest_index_id": "SCN-HARVEST-PUB-01",
+    "traceability_lot_code": "SCN-LOT-2026-PUB-01"
+  }
+}
